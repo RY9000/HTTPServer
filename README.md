@@ -21,7 +21,15 @@ The video file is not provided. Put any mp4 file in the folder "root" and name i
 
 <img width="653" alt="2023-12-28_160103" src="https://github.com/RY9000/HTTPServer/assets/92776817/fb8fa3e5-e557-4be0-b36d-5b5c55a4a223">
 
-## Tables in database
+## Description
+
+### epoll
+epoll is employed as a edge-triggered interface with nonblocking sockets.
+
+![image](https://github.com/RY9000/HTTPServer/assets/92776817/5758e8f0-9995-4add-8366-a6e1265f4acf)
+
+
+### Tables in database
 There are two tables in the database named "HTTPServer" described below.
 
 <img width="653" alt="2023-12-28_151707" src="https://github.com/RY9000/HTTPServer/assets/92776817/31beae74-6cb5-42c1-bdfa-0a0dbc166a68">
