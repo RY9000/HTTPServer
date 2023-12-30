@@ -42,6 +42,7 @@ There are two tables in the database named "HTTPServer" described below.
 <img width="653" alt="2023-12-28_151707" src="https://github.com/RY9000/HTTPServer/assets/92776817/31beae74-6cb5-42c1-bdfa-0a0dbc166a68">
 
 ### Restful APIs
-1. Login: `POST /api/login`
-2. Registration: `POST /api/user`
-3. Get data: `GET /api/user/*userID*`
+1. Login: `POST /api/login` Request Payload in JSON: `{"username":"abc","password":"123"}`
+2. Registration: `POST /api/user` Request Payload in JSON: `{"username":"abc","password":"123"}`
+3. Get user's data: `GET /api/user/userID`
+4. Update user's password: `PUT /api/user/userID` Request Payload in JSON: `{"old_pwd":"123","password":"asdf"}`
