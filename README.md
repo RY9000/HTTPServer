@@ -45,4 +45,6 @@ There are two tables in the database named "HTTPServer" described below.
 1. Login: `POST /api/login` Request Payload in JSON: `{"username":"abc","password":"123"}`
 2. Registration: `POST /api/user` Request Payload in JSON: `{"username":"abc","password":"123"}`
 3. Get user's data: `GET /api/user/userID`
-4. Update user's password: `PUT /api/user/userID` Request Payload in JSON: `{"old_pwd":"123","password":"asdf"}`
+4. Update user's password: `PUT /api/user/userID` Request Payload in JSON: `{"old_pwd":"123","password":"456"}`
+
+![APIs](https://github.com/RY9000/HTTPServer/assets/92776817/aea6bd1c-b6ea-483a-bfef-48ce46c6f23c)
