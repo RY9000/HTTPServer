@@ -42,7 +42,6 @@ There are two tables in the database named "HTTPServer" described below.
 <img width="653" alt="2023-12-28_151707" src="https://github.com/RY9000/HTTPServer/assets/92776817/31beae74-6cb5-42c1-bdfa-0a0dbc166a68">
 
 ### Restful APIs
-C:
-R:
-U:
-D:
+1. Login: `POST /api/login`
+2. Registration: `POST /api/user`
+3. Get data: `GET /api/user/*userID*`
