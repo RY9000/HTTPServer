@@ -18,5 +18,6 @@ Running the server and the test tool on the same laptop with the number of threa
 
 ### Access large files.
 The video file is not provided. Put any mp4 file in the folder "root" and name it "video.mp4" for test.
+
 <img width="653" alt="2023-12-28_160103" src="https://github.com/RY9000/HTTPServer/assets/92776817/fb8fa3e5-e557-4be0-b36d-5b5c55a4a223">
 
