@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm" onsubmit="submitRegisterForm(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <button type="submit">Register</button>
+        <button type="button" onclick="location.href='/'">Back to Login</button>
+        <br>
+        <div id="error-message"></div>
+        <br>
+        <div id="success-message"></div>
+    </form>
+
+    <script src="script.js"></script>
+    <script>
+        async function submitRegisterForm(event) {
+            await submitForm(event, '/api/user', '/');
+        }
+    </script>
+</body>
+</html>

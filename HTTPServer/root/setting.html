@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Setting</title>
+</head>
+<body>
+    <h2>Setting</h2>
+    <form id="settingForm" onsubmit="submitSettingForm(event)">
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" id="oldPassword" name="oldPassword" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <label for="password">New Password:</label>
+        <input type="password" id="password" name="password" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <button type="submit">Submit</button>
+        <button type="button" onclick="location.href='dashboard.html'">Cancel</button>
+        <br>
+        <div id="error-message"></div>
+        <br>
+        <div id="success-message"></div>
+    </form>
+
+    <script src="script.js"></script>
+    <script>
+        async function submitSettingForm(event) {
+            event.preventDefault();
+
+            const old_pwd = document.getElementById('oldPassword').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const user_ID = getCookie('user_ID');
+
+                const response = await fetch(`/api/user/${user_ID}`,
+                    {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ old_pwd, password }),
+                    });
+
+                const errorMessage = document.getElementById('error-message');
+                const successMessage = document.getElementById('success-message');
+                successMessage.textContent = '';
+                errorMessage.textContent = '';
+
+                if (response.status === 200) {
+                    successMessage.textContent = 'Set successfully';
+                }
+                else if (response.status === 400) {
+                    errorMessage.textContent = 'Error: Bad request';
+                }
+                else if (response.status === 401) {
+                    window.location.href = '/';
+                }
+                else if (response.status === 403) {
+                    errorMessage.textContent = 'Error: Invalid old password';
+                }
+                else {
+                    errorMessage.textContent = 'An error occurred';
+                }
+            }
+            catch (error) {
+                console.error('Error during setting:', error);
+            }
+        }
+    </script>
+</body>
+</html>

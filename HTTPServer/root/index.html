@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="submitLoginForm(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required maxlength="20" pattern="^[a-zA-Z0-9_\-.@=]+$" autocomplete="off">
+        <br>
+        <label>Only a~z, A~Z, 0~9, _-.@= acceptable</label>
+        <br>
+        <button type="submit">Login</button>
+        <button type="button" onclick="location.href='register.html'">Register</button>
+        <br>
+        <div id="error-message"></div>
+    </form>
+
+    <script src="script.js"></script>
+    <script>
+        async function submitLoginForm(event) {
+            await submitForm(event, '/api/login', '/dashboard.html');
+        }
+    </script>
+</body>
+</html>
