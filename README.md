@@ -23,11 +23,18 @@ The video file is not provided. Put any mp4 file in the folder "root" and name i
 
 ## Description
 
+### Modules
+![image](https://github.com/RY9000/HTTPServer/assets/92776817/e1dbe778-990a-4623-8396-6725825d31de)
+
 ### epoll
 epoll is employed as a edge-triggered interface with nonblocking sockets.
 
 ![image](https://github.com/RY9000/HTTPServer/assets/92776817/5758e8f0-9995-4add-8366-a6e1265f4acf)
 
+### Sessions
+A new session will be created for each successful sign-in. If a user signs in from different IPs at about the same time, multiple sessions will be created for each IP. They are independent to each other.
+
+![image](https://github.com/RY9000/HTTPServer/assets/92776817/631a8ac0-60ab-49f9-8d37-822e6279b96d)
 
 ### Tables in database
 There are two tables in the database named "HTTPServer" described below.
