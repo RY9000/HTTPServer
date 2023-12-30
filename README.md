@@ -21,3 +21,7 @@ The video file is not provided. Put any mp4 file in the folder "root" and name i
 
 <img width="653" alt="2023-12-28_160103" src="https://github.com/RY9000/HTTPServer/assets/92776817/fb8fa3e5-e557-4be0-b36d-5b5c55a4a223">
 
+## Tables in database
+There are two tables in the database named "HTTPServer" described below.
+
+<img width="653" alt="2023-12-28_143517" src="https://github.com/RY9000/HTTPServer/assets/92776817/5f38d6ed-e586-45b6-8e4a-5e32e855b6fe">
