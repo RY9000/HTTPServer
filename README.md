@@ -32,7 +32,7 @@ epoll is employed as a edge-triggered interface with nonblocking sockets.
 ![image](https://github.com/RY9000/HTTPServer/assets/92776817/5758e8f0-9995-4add-8366-a6e1265f4acf)
 
 ### Sessions
-A new session will be created for each successful sign-in. If a user signs in from different IPs at about the same time, multiple sessions will be created for each IP. They are independent to each other. Sessions also track the last active time. Sessions that have been inactive for longer (2 minutes longer at most) than a specified timeout will be removed.
+A new session will be created for each successful sign-in. If a user signs in from different IPs at about the same time, multiple sessions will be created for each IP. They are independent to each other. Sessions also track the last active time. Those that have been inactive for longer (2 minutes longer at most) than a specified timeout will be removed.
 
 ![image](https://github.com/RY9000/HTTPServer/assets/92776817/631a8ac0-60ab-49f9-8d37-822e6279b96d)
 
