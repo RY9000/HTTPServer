@@ -33,7 +33,7 @@
         async function submitSettingForm(event) {
             event.preventDefault();
 
-            const old_pwd = document.getElementById('oldPassword').value;
+            const oldPwd = document.getElementById('oldPassword').value;
             const password = document.getElementById('password').value;
 
             try {
@@ -43,7 +43,7 @@
                     {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ old_pwd, password }),
+                        body: JSON.stringify({ oldPwd, password }),
                     });
 
                 const errorMessage = document.getElementById('error-message');
