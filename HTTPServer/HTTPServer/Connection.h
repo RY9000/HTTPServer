@@ -590,10 +590,10 @@ private:
 	}
 
 
-	void processPUT() // JSON request body: {"old_pwd":"123","password":"asdf"}
+	void processPUT() // JSON request body: {"oldPwd":"123","password":"asdf"}
 	{
 		DEBUG_LOG("connection::processPUT() m_clientFd = " << m_clientFd << " m_URL = " << m_URL);
-		std::string old_pwd, pwd;
+		std::string oldPwd, pwd;
 		m_parseIndex += 2;
 		while (m_parseIndex < m_bytesRead)
 		{
@@ -607,12 +607,12 @@ private:
 				}
 				m_parseIndex += 3;
 			}
-			else if (m_bytesRead - m_parseIndex > 7 && checkWord(m_parseIndex, m_parseIndex + 7, "old_pwd"))
+			else if (m_bytesRead - m_parseIndex > 6 && checkWord(m_parseIndex, m_parseIndex + 6, "oldPwd"))
 			{
-				m_parseIndex += 10;
+				m_parseIndex += 9;
 				while (m_parseIndex < m_bytesRead && m_request[m_parseIndex] != '"')
 				{
-					old_pwd += m_request[m_parseIndex];
+					oldPwd += m_request[m_parseIndex];
 					++m_parseIndex;
 				}
 				m_parseIndex += 3;
@@ -623,15 +623,15 @@ private:
 				return;
 			}
 		}
-		DEBUG_LOG("connection::processPUT() m_clientFd = " << m_clientFd << " old_pwd = " << old_pwd << " pwd = " << pwd);
+		DEBUG_LOG("connection::processPUT() m_clientFd = " << m_clientFd << " oldPwd = " << oldPwd << " pwd = " << pwd);
 
-		if (m_URL.substr(0, 9) == "api/user/" && checkUserInput(old_pwd) && checkUserInput(pwd))
+		if (m_URL.substr(0, 9) == "api/user/" && checkUserInput(oldPwd) && checkUserInput(pwd))
 		{
 			if (m_sessionID != "" && m_userID != "" && m_URL.substr(9, m_URL.length() - 9) == m_userID)
 			{
 				std::string username = "";
 				SqlConn sqlCon(m_sqlPool);
-				if (0 == sqlCon.checkUser(username, old_pwd, m_userID))
+				if (0 == sqlCon.checkUser(username, oldPwd, m_userID))
 				{
 
 					if (sqlCon.updatePassword(m_userID, pwd))
